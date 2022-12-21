@@ -1,6 +1,8 @@
 import "./App.css";
 import Log from "./img/image503537.jpg";
 import HomePage from "./pages/HomePage";
+import "antd/dist/antd.css";
+
 function App() {
   return (
     <div className="App">
@@ -17,5 +19,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

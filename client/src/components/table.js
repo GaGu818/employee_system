@@ -52,7 +52,7 @@ const UserTable = () => {
 
   const confirm = (record) => {
     deleteUser(record.user_id).then((response) => {
-      message.info("Delete success.");
+      message.info("delete employee successfully.");
       fetchData();
     });
   };
@@ -76,7 +76,7 @@ const UserTable = () => {
     if (action === "update") {
       updateUser(user.user_id, values)
         .then((response) => {
-          message.info("Success.");
+          message.info("update employee successfully.");
           fetchData();
         })
         .catch((error) => {
@@ -84,7 +84,7 @@ const UserTable = () => {
         });
     } else {
       addUser(values).then((response) => {
-        message.info("Success.");
+        message.info("create user uccessfully.");
         fetchData();
       });
     }
@@ -156,7 +156,7 @@ const UserTable = () => {
   return (
     <>
       <Modal
-        title="User Profile"
+        title="Employee Profile"
         open={isViewOpen}
         onOk={handleViewOk}
         onCancel={handleViewCancel}
@@ -176,7 +176,7 @@ const UserTable = () => {
               <li>
                 Name: {user.first_name} {user.last_name}
               </li>
-              <li>${user.salary}</li>
+              <li>Yearly Salary: ${user.salary}</li>
             </ul>
           </Col>
         </Row>
@@ -205,7 +205,7 @@ const UserTable = () => {
             label="first name"
             name="first_name"
             initialValue={user.first_name}
-            rules={[{ required: true, message: "Please input your username!" }]}
+            rules={[{ required: true, message: "Please input first name!" }]}
           >
             <Input defaultValue={user.first_name} />
           </Form.Item>
@@ -214,9 +214,7 @@ const UserTable = () => {
             label="last name"
             name="last_name"
             initialValue={user.last_name}
-            rules={[
-              { required: true, message: "Please input your last name!" },
-            ]}
+            rules={[{ required: true, message: "Please input last name!" }]}
           >
             <Input />
           </Form.Item>
@@ -224,7 +222,7 @@ const UserTable = () => {
             label="salary"
             name="salary"
             initialValue={user.salary}
-            rules={[{ required: true, message: "Please input your salary!" }]}
+            rules={[{ required: true, message: "Please input salary!" }]}
           >
             <Input />
           </Form.Item>
@@ -249,7 +247,7 @@ const UserTable = () => {
             type={"primary"}
             icon={<PlusOutlined />}
           >
-            ADD
+            ADD EMPLOYEE
           </Button>
         </Card>
 
