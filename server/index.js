@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //ports
 app.listen(5001, () => {
-  console.log("Server running on port 5001");
+  console.log("Server running on port 50");
 });
 
 app.get("/", (req, res) => {
