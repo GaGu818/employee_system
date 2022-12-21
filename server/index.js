@@ -1,3 +1,4 @@
+var config = require("./config.json");
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
@@ -5,10 +6,10 @@ const cors = require("cors");
 const mysql = require("mysql2");
 
 const db = mysql.createPool({
-  host: "localhost",
-  user: "root",
-  password: "123456",
-  database: "employee_management_system",
+  host: config.DB_HOST,
+  user: config.DB_USER,
+  password: config.DB_PASSWORD,
+  database: config.DB,
 });
 
 // basic configuration
@@ -17,25 +18,9 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //ports
-app.listen(3001, () => {
-  console.log("Server running on port 3001");
+app.listen(config.SERVER_PORT, () => {
+  console.log(`Server running on port ${config.SERVER_PORT}`);
 });
-
-//test connection
-// var connection = mysql.createConnection({
-//   host: "localhost",
-//   user: "root",
-//   password: "123456",
-//   database: "employee_management_system",
-// });
-
-// connection.connect(function (err) {
-//   if (err) {
-//     console.log("Error connecting to Database", err);
-//     return;
-//   }
-//   console.log("Connection established");
-// });
 
 //get all users
 app.get("/api/get", (req, res) => {
