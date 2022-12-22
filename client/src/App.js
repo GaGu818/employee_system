@@ -7,13 +7,9 @@ function App() {
   return (
     <div className="App">
       <div
-        style={{
-          textAlign: "left",
-          backgroundColor: "#e27f4b",
-          marginBottom: "15px",
-        }}
-      >
+      className="text-wrapper">
         <img src={Log} alt="" />
+        <div className='text'>Employee Management System</div>
       </div>
       <HomePage />
     </div>
