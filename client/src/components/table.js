@@ -74,6 +74,14 @@ const UserTable = () => {
 
   const onFinish = (values) => {
     if (action === "update") {
+      if (
+        values.first_name === user.first_name &&
+        values.last_name === user.last_name &&
+        values.salary === user.salary
+      ) {
+        message.error("update failed：no change detected");
+        return;
+      }
       updateUser(user.user_id, values)
         .then((response) => {
           message.info("update employee successfully.");
